@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from 'react';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [photo, setPhoto] = useState("/react-vite/photo1.jpg"); 
 
+  const changePhoto = () => {
+    setPhoto(photo === "/react-vite/photo1.jpg" ? "/react-vite/photo2.png" : "/react-vite/photo1.jpg"); 
+  };
+ 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div style={{ textAlign: 'center', margin: '20px' }}>
+      <img 
+        src={photo} 
+        style={{ width: '200px', height: '200px', borderRadius: '50%' }} 
+      />
+      <h2><b>Резюме</b></h2>
 
-export default App
+      <p><b>Контактна інформація: </b>Шевчук Яніслав Юрійович, +380685000497, yanislav.shevchuk@e-u.edu.ua, м.Кривий ріг</p>
+      <p><b>Освіта: </b>Студент 3 курсу, спеціальність 121 &lsquo;Інженерія програмного забезпечення&lsquo; Європейського університету</p>
+      <p><b>Навички: </b>HTML, CSS</p>
+      <p><b>Мови: </b>Українаська, Російська, Англійська</p>
+      <p><b>Хобі та інтереси: </b>Більярд, баскетбол, плавання, рибалка</p>
+      <button onClick={changePhoto} style={{ padding: '10px', fontSize: '16px' }}>
+        Змінити фото
+      </button>
+    </div>
+  );
+}
